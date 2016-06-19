@@ -250,6 +250,58 @@ As per defined in [`endpoints.js`](https://github.com/waltfy/destiny/blob/develo
 
 `{ name: 'Character', url: '${ membershipType }/Account/${ membershipId }/Character/${ characterId }/', required: ['membershipType', 'membershipId', 'characterId'] }`
 
+* * *
+
+### `Destiny::Grimoire(params)`
+
+> Returns an `Object` with details about a character's grimoire.
+
+`params` (`Object`)
+  - `membershipType` - `Number`
+  - `membershipId` - `String`, the character's membership ID
+
+#### Sample Usage:
+```js
+var destiny = require('destiny-client')(API_KEY);
+
+destiny
+    .Grimoire({
+        membershipType: 1,
+        membershipId: '4611686018439937004'
+    })
+    .then(res => { /* deal with response */ })
+    .catch(err => { /* handle error */ });
+```
+
+#### Sample Response:
+```js
+{ score: 4990,
+  cardCollection:
+   [ { cardId: 101005, score: 0, points: 0 },
+     { cardId: 101010,
+       score: 45,
+       points: 0,
+       statisticCollection: [Object] },
+     { cardId: 101020,
+       score: 45,
+       points: 0,
+       statisticCollection: [Object] },
+     { cardId: 101030,
+       score: 45,
+       points: 0,
+       statisticCollection: [Object] },
+...
+}
+```
+
+#### Spec
+
+As per defined in [`endpoints.js`](https://github.com/waltfy/destiny/blob/develop/src/endpoints.js).
+
+`{ name: 'Grimoire', url: 'Vanguard/Grimoire/${ membershipType }/${ membershipId }/', required: ['membershipType', 'membershipId'] }`
+
+* * *
+
 ### `Destiny::Activities(params)`
 
 > Returns an `Object` with details about a character's activities.
